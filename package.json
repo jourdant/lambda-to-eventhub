@@ -21,5 +21,8 @@
   },
   "devDependencies": {
     "node-lambda": "^0.9.0"
+  },
+  "dependencies": {
+    "@azure/event-hubs": "^2.0.0"
   }
 }

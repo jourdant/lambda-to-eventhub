@@ -1,11 +1,8 @@
-// For development/testing purposes
+const { EventHubClient, EventPosition } = require('@azure/event-hubs');
+const client = EventHubClient.createFromConnectionString(process.env["EVENTHUB_CONNECTION_STRING"], process.env["EVENTHUB_NAME"]);
+ 
 exports.handler = function(event, context, callback) {
-  console.log('Running index.handler');
-  console.log('==================================');
   console.log('event', event);
-  console.log('==================================');
-  console.log('Stopping index.handler');
+  const delivery = await client.send(event);
   callback(null, event);
-  // or
-  // callback( 'some error type' );
 };
